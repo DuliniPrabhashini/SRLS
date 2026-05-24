@@ -1,15 +1,16 @@
 package com.example.MyProject.controller;
 
-import com.example.MyProject.entity.User;
+import com.example.MyProject.dto.LoginDTO;
+import com.example.MyProject.dto.RegisterDTO;
+import com.example.MyProject.dto.ResponseDTO;
 import com.example.MyProject.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin(origins = "*") // important for the UI
+
 public class AuthController {
 
     @Autowired
@@ -17,13 +18,19 @@ public class AuthController {
 
     // Register
     @PostMapping("/register")
-    public String registerUser(@RequestBody User user) {
-        return authService.RegisterUser(user);
+    public String registerUser(@RequestBody RegisterDTO registerDTO) {
+        return authService.RegisterUser(registerDTO);
     }
 
     // Login
     @PostMapping("/login")
-    public String loginUser(@RequestBody User user) {
-        return authService.LoginUser(user.getEmail(), user.getPassword());
+    public String loginUser(@RequestBody LoginDTO loginDTO) {
+        return authService.LoginUser(loginDTO);
     }
+
+    // Get user
+    public ResponseDTO getUser(@RequestParam String email) {
+        return authService.getUser(email);
+    }
+
 }
