@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+<h1>Login</h1>
+
+<input id="loginEmail" placeholder="Email"><br>
+<input id="loginPassword" type="password" placeholder="Password"><br>
+
+<button onclick="login()">Login</button>
+
+<script>
+  function login() {
+
+    const data = {
+      email: document.getElementById("loginEmail").value,
+      password: document.getElementById("loginPassword").value
+    };
+
+    fetch("http://localhost:8080/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+            .then(res => res.text())
+            // .then(data => alert(data));
+        .then(response => {alert(response);
+
+            if (response.toLowerCase().includes("success")){
+                window.location.href = "dashboard.html"
+            }else {
+                window.location.href = "loginPage.html"
+            }
+        })
+  }
+</script>
+</body>
+</html>
