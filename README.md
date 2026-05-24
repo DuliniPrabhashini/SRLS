@@ -37,6 +37,3 @@ The project demonstrates a simple **Register and Login system** without JWT auth
 - MySQL (XAMPP)
 
 ---
-MySQL Database
-
----
