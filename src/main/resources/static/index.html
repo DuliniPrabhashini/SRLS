@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+
+<h2>Register</h2>
+
+<input id="name" placeholder="Name"><br>
+<input id="email" placeholder="Email"><br>
+<input id="password" type="password" placeholder="Password"><br>
+
+<button onclick="register()">Register</button>
+
+<h2>Login</h2>
+
+<input id="loginEmail" placeholder="Email"><br>
+<input id="loginPassword" type="password" placeholder="Password"><br>
+
+<button onclick="login()">Login</button>
+
+<script>
+
+    function register() {
+
+        const data = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value
+        };
+
+        fetch("http://localhost:8080/auth/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.text())
+            .then(data => alert(data));
+    }
+
+    function login() {
+
+        const data = {
+            email: document.getElementById("loginEmail").value,
+            password: document.getElementById("loginPassword").value
+        };
+
+        fetch("http://localhost:8080/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.text())
+            .then(data => alert(data));
+    }
+</script>
+
+</body>
+</html>
