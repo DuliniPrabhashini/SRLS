@@ -2,9 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+
+    <link rel="stylesheet" href="StyleSheets/dashboard.css">
 </head>
+
 <body>
-    <h1>Dashboard</h1>
+
+<!-- Navbar -->
+<div class="navbar">
+    <h2>My Dashboard</h2>
+
+    <button class="logout-btn" onclick="logout()">
+        Logout
+    </button>
+</div>
+
+<!-- Content -->
+<div class="dashboard-container">
+
+    <div class="welcome-card">
+        <h1>Welcome to my Simple Register Login System</h1>
+        <p>
+            You have successfully logged into your Spring Boot application dashboard.
+        </p>
+    </div>
+
+    <div class="image-card">
+        <img src="/static/images/dashboard.jpg" alt="Dashboard Image">
+    </div>
+
+</div>
+
+<script>
+
+    function logout() {
+        alert("Logged out successfully");
+        window.location.href = "loginPage.html";
+    }
+
+</script>
+
 </body>
 </html>

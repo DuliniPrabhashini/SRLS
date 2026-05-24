@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Page</title>
+    <link rel="stylesheet" href="StyleSheets/index.css">
 </head>
 <body>
-<h1>Welcome to Simple Register Login System</h1>
 
-<button onclick="goRegister()">Register</button>
-<button onclick="goLogin()">Login</button>
+<div class="container">
+    <h1>Welcome</h1>
+
+    <p>
+        Welcome to the Simple Register Login System.<br>
+        Please choose an option to continue.
+    </p>
+
+    <div class="button-group">
+        <button class="register-btn" onclick="goRegister()">Register</button>
+        <button class="login-btn" onclick="goLogin()">Login</button>
+    </div>
+
+</div>
 
 <script>
     function goRegister() {
@@ -18,5 +32,6 @@
         window.location.href = "loginPage.html";
     }
 </script>
+
 </body>
 </html>

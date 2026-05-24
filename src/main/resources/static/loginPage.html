@@ -2,42 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+
+    <link rel="stylesheet" href="StyleSheets/login.css">
+
 </head>
+
 <body>
-<h1>Login</h1>
 
-<input id="loginEmail" placeholder="Email"><br>
-<input id="loginPassword" type="password" placeholder="Password"><br>
+<div class="login-container">
 
-<button onclick="login()">Login</button>
+    <h1>Login</h1>
+
+    <div class="input-group">
+        <input id="loginEmail" placeholder="Enter Email">
+    </div>
+
+    <div class="input-group">
+        <input id="loginPassword" type="password" placeholder="Enter Password">
+    </div>
+
+    <button onclick="login()">Login</button>
+
+    <div class="register-link">
+        Don't have an account?
+        <a href="registerPage.html">Register</a>
+    </div>
+
+</div>
 
 <script>
-  function login() {
 
-    const data = {
-      email: document.getElementById("loginEmail").value,
-      password: document.getElementById("loginPassword").value
-    };
+    function login() {
 
-    fetch("http://localhost:8080/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-            .then(res => res.text())
-            // .then(data => alert(data));
-        .then(response => {alert(response);
+        const data = {
+            email: document.getElementById("loginEmail").value,
+            password: document.getElementById("loginPassword").value
+        };
 
-            if (response.toLowerCase().includes("success")){
-                window.location.href = "dashboard.html"
-            }else {
-                window.location.href = "loginPage.html"
-            }
+        fetch("http://localhost:8080/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
         })
-  }
+            .then(res => res.text())
+            .then(response => {
+
+                alert(response);
+
+                if (response.toLowerCase().includes("success")){
+                    window.location.href = "dashboard.html"
+                }else {
+                    window.location.href = "loginPage.html"
+                }
+
+            })
+    }
+
 </script>
+
 </body>
 </html>
