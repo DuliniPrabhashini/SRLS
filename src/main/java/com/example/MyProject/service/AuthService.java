@@ -1,5 +1,6 @@
 package com.example.MyProject.service;
 
+import com.example.MyProject.dto.RegisterDTO;
 import com.example.MyProject.entity.User;
 import com.example.MyProject.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
