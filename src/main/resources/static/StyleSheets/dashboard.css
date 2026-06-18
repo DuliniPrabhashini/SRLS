@@ -78,3 +78,40 @@ body{
     margin-top: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
+
+.item-card{
+
+    background:white;
+    padding:35px;
+    border-radius:16px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+.item-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+}
+
+
+.item-card h2{
+
+    color:#2563eb;
+    margin-bottom:10px;
+
+}
+
+.item-card p{
+
+    color:#6b7280;
+
+}
