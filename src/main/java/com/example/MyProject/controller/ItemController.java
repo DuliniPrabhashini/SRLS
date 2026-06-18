@@ -18,4 +18,9 @@ public class ItemController {
     public String saveItem(@Valid @RequestBody ItemDTO itemDTO) {
         return itemService.saveItem(itemDTO);
     }
+
+    @PutMapping("/update")
+    public String updateItem(@Valid @RequestBody ItemDTO itemDTO) {
+        return itemService.updateItem(itemDTO);
+    }
 }

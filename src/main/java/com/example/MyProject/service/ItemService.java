@@ -24,4 +24,19 @@ public class ItemService {
 
         return "Item saved successfully !";
     }
+
+    // Update Item
+    public String updateItem(ItemDTO itemDTO){
+        Item item = itemRepo.findById(itemDTO.getItemId()).
+                orElseThrow(() ->
+                        new RuntimeException("Item not found !"));
+
+        item.setItemName(itemDTO.getItemName());
+        item.setItemPrice(itemDTO.getItemPrice());
+        item.setItemQuantity(itemDTO.getItemQuantity());
+
+        itemRepo.save(item);
+
+        return "Item updated successfully !";
+    }
 }
