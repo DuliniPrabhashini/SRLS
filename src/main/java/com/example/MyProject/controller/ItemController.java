@@ -23,4 +23,9 @@ public class ItemController {
     public String updateItem(@Valid @RequestBody ItemDTO itemDTO) {
         return itemService.updateItem(itemDTO);
     }
+
+    @DeleteMapping("/{itemId}")
+    public String deleteItem(@PathVariable long itemId){
+        return itemService.deleteItem(itemId);
+    }
 }

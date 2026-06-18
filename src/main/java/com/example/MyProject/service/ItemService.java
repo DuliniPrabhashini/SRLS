@@ -39,4 +39,10 @@ public class ItemService {
 
         return "Item updated successfully !";
     }
+
+    // Delete Item
+    public String deleteItem(long itemId){
+        itemRepo.deleteById(itemId);
+        return "Item deleted successfully !";
+    }
 }
