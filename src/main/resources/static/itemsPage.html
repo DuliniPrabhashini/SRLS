@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Page</title>
+    <link rel="stylesheet" href="StyleSheets/item.css">
+</head>
+<body>
+<div class="navbar">
+
+  <h2>Item Management</h2>
+
+  <button onclick="goBack()">Dashboard</button>
+
+</div>
+
+<div class="container">
+  <!-- Item Form -->
+  <div class="form-card">
+    <h2>Add / Update Item</h2>
+    <input type="hidden" id="itemId">
+
+    <input type="text"
+           id="itemName"
+           placeholder="Item Name">
+
+    <input type="number"
+           id="quantity"
+           placeholder="Quantity">
+
+    <input type="number"
+           id="price"
+           placeholder="Price">
+
+    <div>
+      <button class="save">
+        Save
+      </button>
+
+      <button class="update">
+        Update
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Search -->
+  <div class="search-box">
+    <input type="text"
+           placeholder="Search Item...">
+
+    <button>
+      Search
+    </button>
+
+  </div>
+
+  <!-- Table -->
+  <div class="table-card">
+    <h2>Stock Items</h2>
+
+    <table>
+      <thead>
+      <tr>
+
+        <th>ID</th>
+
+        <th>Item Name</th>
+
+        <th>Quantity</th>
+
+        <th>Price</th>
+
+        <th>Actions</th>
+
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+
+        <td>1</td>
+
+        <td>Baby Hair Clip</td>
+
+        <td>50</td>
+
+        <td>150</td>
+
+        <td>
+
+          <button class="edit">
+            Edit
+          </button>
+
+          <button class="delete">
+            Delete
+          </button>
+
+        </td>
+      </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+</div>
+
+<script>
+
+  function goBack(){
+
+    window.location.href="dashboard.html";
+
+  }
+
+</script>
+</body>
+</html>
