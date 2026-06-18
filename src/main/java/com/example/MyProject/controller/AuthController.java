@@ -4,6 +4,7 @@ import com.example.MyProject.dto.LoginDTO;
 import com.example.MyProject.dto.RegisterDTO;
 import com.example.MyProject.dto.ResponseDTO;
 import com.example.MyProject.service.AuthService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,13 +19,13 @@ public class AuthController {
 
     // Register
     @PostMapping("/register")
-    public String registerUser(@RequestBody RegisterDTO registerDTO) {
+    public String registerUser(@Valid @RequestBody RegisterDTO registerDTO) {
         return authService.RegisterUser(registerDTO);
     }
 
     // Login
     @PostMapping("/login")
-    public String loginUser(@RequestBody LoginDTO loginDTO) {
+    public String loginUser(@Valid @RequestBody LoginDTO loginDTO) {
         return authService.LoginUser(loginDTO);
     }
 
