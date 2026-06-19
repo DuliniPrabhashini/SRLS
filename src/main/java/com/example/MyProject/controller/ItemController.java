@@ -35,4 +35,9 @@ public class ItemController {
     public List<ItemDTO> getAllItems() {
         return itemService.getAllItems();
     }
+
+    @GetMapping("/{itemId}")
+    public ItemDTO searchItemById(@PathVariable long itemId) {
+        return itemService.getItemById(itemId);
+    }
 }

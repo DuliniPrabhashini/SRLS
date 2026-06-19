@@ -65,4 +65,20 @@ public class ItemService {
         }
         return itemDTOList;
     }
+
+    //Search Item By Id
+    public ItemDTO getItemById(long itemId){
+        Item item = itemRepo.findById(itemId)
+                .orElseThrow(()->
+                        new RuntimeException("Item not found !"));
+
+        ItemDTO itemDTO = new ItemDTO();
+
+        itemDTO.setItemId(item.getItemId());
+        itemDTO.setItemName(item.getItemName());
+        itemDTO.setItemPrice(item.getItemPrice());
+        itemDTO.setItemQuantity(item.getItemQuantity());
+
+        return itemDTO;
+    }
 }
