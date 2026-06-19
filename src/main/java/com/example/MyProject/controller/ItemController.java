@@ -6,6 +6,8 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/item")
 @CrossOrigin(origins = "*")
@@ -27,5 +29,10 @@ public class ItemController {
     @DeleteMapping("/{itemId}")
     public String deleteItem(@PathVariable long itemId){
         return itemService.deleteItem(itemId);
+    }
+
+    @GetMapping("/getAllItems")
+    public List<ItemDTO> getAllItems() {
+        return itemService.getAllItems();
     }
 }
