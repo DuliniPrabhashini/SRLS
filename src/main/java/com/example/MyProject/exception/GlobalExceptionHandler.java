@@ -12,12 +12,20 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Map<String, String> hndleValidation(MethodArgumentNotValidException exception) {
+    public Map<String, String> handleValidation(MethodArgumentNotValidException exception) {
         Map<String, String> errors = new HashMap<>();
 
         exception.getBindingResult().getFieldErrors().forEach(myError -> errors.put(
                 myError.getField(), myError.getDefaultMessage()
         ) );
         return errors;
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public Map<String, String> handleRuntimeException(RuntimeException exception) {
+        Map<String, String> error = new HashMap<>();
+        error.put("message", exception.getMessage());
+        return error;
     }
 }
