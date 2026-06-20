@@ -81,4 +81,23 @@ public class ItemService {
 
         return itemDTO;
     }
+
+    //Search Item By Name
+    public List <ItemDTO> getItemByItemName(String itemName){
+        List<Item> items = itemRepo.findByItemNameContainingIgnoreCase(itemName);
+        List <ItemDTO> itemDTOList= new ArrayList<>();
+
+        for(Item item : items){
+            ItemDTO itemDTO = new ItemDTO();
+
+            itemDTO.setItemId(item.getItemId());
+            itemDTO.setItemName(item.getItemName());
+            itemDTO.setItemPrice(item.getItemPrice());
+            itemDTO.setItemQuantity(item.getItemQuantity());
+
+            itemDTOList.add(itemDTO);
+        }
+
+        return itemDTOList;
+    }
 }

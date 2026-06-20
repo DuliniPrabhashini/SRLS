@@ -40,4 +40,9 @@ public class ItemController {
     public ItemDTO searchItemById(@PathVariable long itemId) {
         return itemService.getItemById(itemId);
     }
+
+    @GetMapping("/searchByName/{itemName}")
+    public List<ItemDTO> searchItemByName(@PathVariable String itemName) {
+        return itemService.getItemByItemName(itemName);
+    }
 }
